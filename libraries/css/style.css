@@ -1,0 +1,85 @@
+@font-face{
+	font-family: COOPERM;
+	src: url('../../libraries/font/COOPERM.TTF'),url('../../libraries/font/COOPERM.eot'); /* IE9 */
+}
+
+@font-face{
+	font-family: CHISER__;
+	src: url('../../libraries/font/CHISER__.TTF'),url('../../libraries/font/CHISER__.eot'); /* IE9 */
+}
+
+@font-face{
+	font-family: segoeui;
+	src: url('../../libraries/font/segoeui.ttf'),url('../../libraries/font/segoeui.eot'); /* IE9 */
+}
+
+@charset "utf-8";
+/* CSS Document */
+
+html {
+overflow: -moz-scrollbars-vertical; 
+overflow-y: scroll;
+}
+
+body {
+	background:url(../img/page_bg.jpg);
+	font-family:segoeui;
+}
+
+textarea{
+	font-family:segoeui;
+}
+
+.form input[type="file"]{
+	z-index: 999;
+	line-height: 0;
+	position: absolute;
+	opacity: 0;
+	filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+	cursor: pointer;
+	_cursor: hand;
+	}
+
+.add-photo-btn{
+	position:relative;
+	overflow:hidden;
+	cursor:pointer;
+	text-align:center;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #91A6AD),
+	color-stop(1, #CFDAE3)
+	);
+	background-image: -o-linear-gradient(bottom, #91A6AD 0%, #CFDAE3 100%);
+	background-image: -moz-linear-gradient(bottom, #91A6AD 0%, #CFDAE3 100%);
+	background-image: -webkit-linear-gradient(bottom, #91A6AD 0%, #CFDAE3 100%);
+	background-image: -ms-linear-gradient(bottom, #91A6AD 0%, #CFDAE3 100%);
+	background-image: linear-gradient(to bottom, #91A6AD 0%, #CFDAE3 100%);
+	color:#fff;
+	display:block;
+	width:200px;
+	margin: 0 auto;
+}
+
+img.icon{
+	float: left;
+}
+ul.title{
+	font-size: 14px;
+	color: rgb(0,128,0);
+	font-weight: bold;
+	margin:2px;
+	margin-left: -10px;
+}
+
+#tip{
+	padding: 5px 10px 5px 0;
+	float: right;
+}
+
+#tip2{
+	padding: 5px 10px 5px 0;
+	float: right;
+}
