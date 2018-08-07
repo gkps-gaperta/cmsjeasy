@@ -31,15 +31,31 @@
              $.messager.alert('Peringatan','Pilih salah satu baris!','warning');
         }
     }
-    function deleteBlood(){
-        var row = $('#dgBlood').datagrid('getSelected');
-        if (row){
+    function viewBlood(bloodid){
+        var row = bloodid==undefined?$('#dgBlood').datagrid('getSelected').bloodid:bloodid;
+        if (row!=''){
+            $('#dlgView').dialog({
+                closed:false,
+                title:'Delete data',
+                href:'<?php echo base_url(); ?>blood/form2/delete/'+row,
+                onLoad:function(){
+                    url = '<?= base_url() ?>blood/crud2/'+row;
+                }
+            });
+   
+        }else{
+             $.messager.alert('Peringatan','Pilih salah satu baris!','warning');
+        }
+    }
+    function deleteBlood(bloodid){
+        var row = bloodid==undefined?$('#dgBlood').datagrid('getSelected').bloodid:bloodid;
+        if (row!=''){
             $('#dlg').dialog({
                 closed:false,
                 title:'Delete data',
-                href:'<?php echo base_url(); ?>blood/form2/delete/'+row.bloodid,
+                href:'<?php echo base_url(); ?>blood/form2/delete/'+row,
                 onLoad:function(){
-                    url = '<?= base_url() ?>blood/crud2/'+row.bloodid;
+                    url = '<?= base_url() ?>blood/crud2/'+row;
                 }
             });
    
@@ -147,8 +163,14 @@
         <div id="dlg" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'" >
            
         </div>
+        <div id="dlgView" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons1'" >
+
+        </div>
+        <div id="dlg-buttons1">
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlgView').dialog('close')" style="width:90px">Cancel</a>
+        </div>
         <div id="dlg-buttons">
-            <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveBlood()" style="width:90px">Save</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveBlood()" style="width:90px">Proses</a>
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
         </div>
     </div>

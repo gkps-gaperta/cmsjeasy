@@ -116,9 +116,12 @@ class blood extends CI_Controller {
 		// $total = count($data);
 		foreach($data as $row){
 			if(substr($acl,0,1)==1){
-				$view = '<button class="icon-edit" onclick="editBlood(\''.$row->bloodid.'\')" style="width:16px;height:16px;border:0"></button>';
+				$view = '<button class="icon-view_detail" onclick="viewBlood(\''.$row->bloodid.'\')" style="width:16px;height:16px;border:0"></button> ';
+				$edit = '<button class="icon-edit" onclick="editBlood(\''.$row->bloodid.'\')" style="width:16px;height:16px;border:0"></button> ';
+				$del = '<button class="icon-remove" onclick="deleteBlood(\''.$row->bloodid.'\')" style="width:16px;height:16px;border:0"></button>';
+
 			}
-			$row->aksi = $view;
+			$row->aksi = $view.$edit.$del;
 		}
 		$response = new stdClass;
 		$response->total=$total;
